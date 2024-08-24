@@ -9,60 +9,188 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-100 p-8">
-    <div class="container mx-auto flex space-x-8">
+  <body class="p-8 bg-gray-100">
+    <div class="container flex mx-auto space-x-8">
       <!-- Input Form -->
-      <div class="w-1/3 bg-white p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold mb-4">Poster Builder</h2>
-        <form id="posterForm" class="space-y-4">
-          <div>
-            <label for="header" class="block text-sm font-medium text-gray-700"
-              >Header</label
+      <div class="w-1/2 p-6 rounded-lg shadow-lg">
+        <button
+          class="relative flex justify-center w-full gap-2 px-5 py-3 mb-4 text-2xl font-bold bg-white rounded-md -top-10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="#000000"
+            version="1.1"
+            id="Capa_1"
+            width="30px"
+            height="30px"
+            viewBox="0 0 209.291 209.291"
+            xml:space="preserve"
+          >
+            <g>
+              <g>
+                <polygon
+                  points="104.643,0 186.028,48.828 169.959,58.655 104.643,98.611 39.328,58.655 23.262,48.828"
+                />
+                <polygon
+                  points="10.964,72.319 91.423,121.525 91.423,209.291 10.964,157.229"
+                />
+                <polygon
+                  points="198.326,157.229 117.874,209.291 117.874,121.525 198.326,72.319"
+                />
+              </g>
+            </g>
+          </svg>
+          <h1>Components</h1>
+        </button>
+
+        <form id="posterForm" class="mt-10 space-y-8">
+          <div id="headerSection" class="p-5 mt-5 border rounded">
+            <h1
+              class="relative -top-8 px-4 py-0.5 rounded-full w-24 text-center bg-gray-200"
             >
+              Heading
+            </h1>
             <input
               type="text"
               id="header"
-              class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              class="block w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
-          <div>
-            <label
-              for="imageUpload"
-              class="block text-sm font-medium text-gray-700"
-              >Upload Image</label
+          <!-- Second image upload -->
+          <div id="imageUploadSection" class="p-5 border rounded">
+            <h1
+              class="relative -top-8 px-4 py-0.5 rounded-full w-32 text-center bg-gray-200"
             >
-            <input
-              type="file"
-              id="imageUpload"
-              class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-              accept="image/*"
-            />
+              Poster Image
+            </h1>
+            <div
+              class="w-[400px] relative border-2 py-16 border-gray-300 border-dashed rounded-lg p-6"
+            >
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                class="absolute inset-0 z-50 w-full h-full opacity-0"
+              />
+              <div
+                class="flex flex-col items-center justify-center text-center"
+              >
+                <svg
+                  class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                  />
+                </svg>
+                <h3 class="mt-2 text-sm font-medium text-gray-900">
+                  <label for="file-upload" class="relative cursor-pointer">
+                    <span>Drag and drop</span>
+                    <span class="text-indigo-600"> or browse</span>
+                    <span>to upload</span>
+                    <input
+                      id="file-upload"
+                      name="file-upload"
+                      type="file"
+                      class="hidden"
+                    />
+                  </label>
+                </h3>
+                <p class="mt-1 text-xs text-gray-500">
+                  PNG, JPG, GIF up to 10MB
+                </p>
+              </div>
+              <img
+                src=""
+                class="hidden mx-auto mt-4 max-h-40"
+                id="previewImage"
+              />
+            </div>
           </div>
-          <div>
-            <label
-              for="description"
-              class="block text-sm font-medium text-gray-700"
-              >Description</label
+          <!-- Description section -->
+          <div id="descriptionSection" class="p-5 mt-5 border rounded">
+            <h1
+              class="relative -top-8 px-4 py-0.5 rounded-full w-32 text-center bg-gray-200"
             >
+              Description
+            </h1>
             <textarea
               id="description"
               rows="4"
-              class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              class="block w-full p-2 mt-1 border border-gray-300 rounded-md"
             ></textarea>
           </div>
         </form>
+        <div class="flex items-center justify-between mt-5">
+          <button
+            id="headerButton"
+            class="px-20 py-1.5 font-semibold text-white bg-yellow-300 rounded-md"
+          >
+            Heading
+          </button>
+          <button
+            id="imageButton"
+            class="px-20 py-1.5 font-semibold text-white bg-green-300 rounded-md"
+          >
+            Image
+          </button>
+          <button
+            id="descriptionButton"
+            class="px-20 py-1.5 font-semibold text-white bg-blue-300 rounded-md"
+          >
+            Description
+          </button>
+        </div>
       </div>
 
       <!-- Poster Preview -->
-      <div class="w-2/3 bg-white p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold mb-4">Preview</h2>
+      <div class="w-1/2 p-6 rounded-lg shadow-lg">
+        <button
+          class="relative flex justify-center w-full gap-2 px-5 py-3 mb-4 text-2xl font-bold bg-white rounded-md -top-10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="#000000"
+            height="30px"
+            width="30px"
+            version="1.1"
+            id="Capa_1"
+            viewBox="0 0 330 330"
+            xml:space="preserve"
+          >
+            <g>
+              <path
+                d="M35,270h45v45c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15V75c0-8.284-6.716-15-15-15h-45V15c0-8.284-6.716-15-15-15H35c-8.284,0-15,6.716-15,15v240C20,263.284,26.716,270,35,270z M280,300H110V90h170V300z M50,30h170v30H95c-8.284,0-15,6.716-15,15v165H50V30z"
+              />
+              <path
+                d="M155,120c-8.284,0-15,6.716-15,15s6.716,15,15,15h80c8.284,0,15-6.716,15-15s-6.716-15-15-15H155z"
+              />
+              <path
+                d="M235,180h-80c-8.284,0-15,6.716-15,15s6.716,15,15,15h80c8.284,0,15-6.716,15-15S243.284,180,235,180z"
+              />
+              <path
+                d="M235,240h-80c-8.284,0-15,6.716-15,15c0,8.284,6.716,15,15,15h80c8.284,0,15-6.716,15-15C250,246.716,243.284,240,235,240z"
+              />
+            </g>
+          </svg>
+          <h1>Preview</h1>
+        </button>
         <div id="posterPreview" class="space-y-4">
           <h1 id="previewHeader" class="text-3xl font-bold"></h1>
           <img
-            id="previewImage"
+            id="previewImageDisplay"
             src=""
             alt="Poster Image"
-            class="w-full h-64 object-cover rounded-lg"
+            class="object-cover w-full h-64 rounded-lg"
           />
           <p id="previewDescription" class="text-gray-700"></p>
         </div>
