@@ -1,9 +1,35 @@
 body {
-  background-image: url("./image/background.jpg");
+  background-image: url("./image/background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   margin: 0;
   height: 100vh;
+}
+.card {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.card2 {
+  background: rgba(0, 0, 0, 0.2);
+}
+.insideCard {
+  background: rgba(69, 68, 68, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.cardW {
+  width: 550px;
+  transform: rotate(8deg);
+}
+.cardL {
+  width: 550px;
+  transform: rotate(-8deg);
 }
